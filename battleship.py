@@ -16,8 +16,12 @@ def checkIfHitOrMiss(guess, opponents_board):
         for each_slot in opponents_board:
             if each_slot == "SNH":
                 print "its the opponents turn"
+                return
+        print "you sunk my battleship!"
+        
 
-            
+
+
 
 
 
