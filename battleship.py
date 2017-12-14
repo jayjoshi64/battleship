@@ -13,7 +13,8 @@ def checkIfHitOrMiss(guess, opponents_board):
     if opponents_slot == "SNH":
         print "You've hit the ship!"
         opponents_board[guess] = "SH"
-        # ...
+        for each_slot in opponents_board:
+            # ...
 
 
 
