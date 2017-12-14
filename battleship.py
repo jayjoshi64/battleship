@@ -1,3 +1,4 @@
+# this is james and abigail's battleship project
 def checkIfHitOrMiss(guess, opponents_board):
     """
     This function will check whether a guess
