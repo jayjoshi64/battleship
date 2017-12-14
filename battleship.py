@@ -14,7 +14,8 @@ def checkIfHitOrMiss(guess, opponents_board):
         print "You've hit the ship!"
         opponents_board[guess] = "SH"
         for each_slot in opponents_board:
-            # ...
+            # check each to see if it is 'SNH'
+            # because if so, game is not over
 
 
 
