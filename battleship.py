@@ -6,9 +6,6 @@ def choosePosition(player_n, board):
     This function lets a player choose
     where on the board to place his/her two ships
     """
-    print " "
-    print "Player %r: select your first slot number for your ship:" % player_n
-    print " "
     drawBoard(board)
     slot_1 = int(raw_input("Slot 1 Position Number: > "))
     board[slot_1] = "X"
@@ -47,19 +44,25 @@ def checkIfHitOrMiss(guess, opponents_board):
         print "you sunk my battleship!"
 
 
-
-
-
-
-
-
-
-
-guess = 4
-opponents_board = [
-    " ", " ", "M",
-    " ", "SNH", "SH",
-    " ", "M", " "
+# the game begins here:
+playerOneBoard = [
+    "0", "1", "2",
+    "3", "4", "5",
+    "6", "7", "8"
+]
+playerTwoBoard = [
+    "0", "1", "2",
+    "3", "4", "5",
+    "6", "7", "8"
 ]
 
-checkIfHitOrMiss(guess, opponents_board)
+print "Player 1 select your first slot number for your ship:"
+choosePosition(1, playerOneBoard)
+print "Okay player one! here's how your board looks!"
+print "Player 1 select your first slot number for your ship:"
+drawBoard(playerOneBoard)
+choosePosition(2, playerTwoBoard)
+print "Okay player two! here's how your board looks!"
+drawBoard(playerTwoBoard)
+game_not_won = True
+player_n_turn = 1
