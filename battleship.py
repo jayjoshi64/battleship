@@ -43,6 +43,26 @@ def checkIfHitOrMiss(guess, opponents_board):
                 return
         print "you sunk my battleship!"
 
+def drawBoardWithoutShip(board):
+    """
+    This will print a board but will replace any slot that has
+    "SNH" with " ".
+    """
+
+def chooseAttack(opponents_board):
+    """
+    This function will ask the user to
+    choose a slot to attack (from 0 to 8),
+    then will call checkIfHitOrMiss and save it in a variable,
+    # just like we do with raw input. For example:
+    # answer = raw_input()
+    If the the checkIfHitOrMiss result equals "already guessed",
+    then this function should make the user guess
+    again until (s)he gets a slot that hasn't been guessed yet.
+    Once the player has successfully chosen the slot to attack,
+    this function should 'return' the checkIfHitOrMiss result
+    """
+
 
 # the game begins here:
 playerOneBoard = [
@@ -66,3 +86,22 @@ print "Okay player two! here's how your board looks!"
 drawBoard(playerTwoBoard)
 game_not_won = True
 player_n_turn = 1
+# we need a while loop here that keeps going
+# as long as game_not_won == True.
+# inside this while loop, there should be a
+# print statement telling the player (1 or 2)
+# that it's his/her turn to choose a slot
+# to attack. After printing this,
+# we need to show the player their opponent's board (without the ship)
+# in order for them to see where they've attacked before,
+# so this while loop should use drawBoardWithoutShip()
+# and pass it the opponent's board.
+# Then, this while loop should call chooseAttack and save it in a variable,
+# just like we do with raw input. For example:
+# answer = raw_input()
+# if the result of chooseAttack equals "won", then
+# we should print that this player won and break out of the while loop.
+# if the result of chooseAttack does NOT equal "won",
+# we should change player_n_turn to make it the other player's turn.
+# This means making player_n_turn = 1 if it is currently equal to 2,
+# or else making it equal to 2 if it is currently equal to 1.
