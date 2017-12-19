@@ -46,13 +46,13 @@ def checkIfHitOrMiss(guess, opponents_board):
     if opponents_slot == " ":
         print "Miss!"
         opponents_board[guess] = "M"
-    if opponents_slot == "M" or opponents_slot == "SH":
+    if opponents_slot == "M" or opponents_slot == "H":
         print "You've already guess this! Try again."
-    if opponents_slot == "SNH":
+    if opponents_slot == "S":
         print "You've hit the ship!"
-        opponents_board[guess] = "SH"
+        opponents_board[guess] = "H"
         for each_slot in opponents_board:
-            if each_slot == "SNH":
+            if each_slot == "S":
                 print "its the opponents turn"
                 return
         print "you sunk my battleship!"
