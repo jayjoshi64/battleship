@@ -1,6 +1,20 @@
 # this is james and abigail's battleship project
 
 
+def drawBoard (board):
+
+    print('   |   |')
+    print(' ' + board[0] + ' | ' + board[1] + ' | ' + board[2])
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + board[3] + ' | ' + board[4] + ' | ' + board[5])
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + board[6] + ' | ' + board[7] + ' | ' + board[8])
+    print('   |   |')
+
 def choosePosition(player_n, board):
     """
     This function lets a player choose
