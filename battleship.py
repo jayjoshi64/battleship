@@ -92,14 +92,17 @@ playerTwoBoard = [
 
 print "Player 1 select your first slot number for your ship:"
 choosePosition(1, playerOneBoard)
-print "Okay player one! here's how your board looks!"
-print "Player 1 select your first slot number for your ship:"
+print "Okay player 1! here's how your board looks!"
 drawBoard(playerOneBoard)
+
+print "Player 2 select your first slot number for your ship:"
 choosePosition(2, playerTwoBoard)
-print "Okay player two! here's how your board looks!"
+print "Okay player 2! here's how your board looks!"
 drawBoard(playerTwoBoard)
+
 game_not_won = True
 player_n_turn = 1
+
 # we need a while loop here that keeps going
 # as long as game_not_won == True.
 # inside this while loop, there should be a
