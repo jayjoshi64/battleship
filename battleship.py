@@ -1,7 +1,8 @@
 # this is james and abigail's battleship project
 
-
+#import time time.sleep(secs)
 def drawBoard (board):
+
     print('   |   |')
     print(' ' + board[0] + ' | ' + board[1] + ' | ' + board[2])
     print('   |   |')
@@ -12,25 +13,6 @@ def drawBoard (board):
     print('-----------')
     print('   |   |')
     print(' ' + board[6] + ' | ' + board[7] + ' | ' + board[8])
-    print('   |   |')
-
-def scrubShip(slot):
-    if slot == "S":
-        return " "
-    else:
-        return slot
-
-def drawBoardWithoutShip(board):
-    print('   |   |')
-    print(' ' + scrubShip(board[0]) + ' | ' + scrubShip(board[1]) + ' | ' + scrubShip(board[2]))
-    print('   |   |')
-    print('-----------')
-    print('   |   |')
-    print(' ' + scrubShip(board[3]) + ' | ' + scrubShip(board[4]) + ' | ' + scrubShip(board[5]))
-    print('   |   |')
-    print('-----------')
-    print('   |   |')
-    print(' ' + scrubShip(board[6]) + ' | ' + scrubShip(board[7]) + ' | ' + scrubShip(board[8]))
     print('   |   |')
 
 def choosePosition(player_n, board):
@@ -52,7 +34,7 @@ def choosePosition(player_n, board):
         if(each != "X"):
             board[index] = " "
         else:
-            board[index] = "SNH"
+            board[index] = "S"
 
 
 def checkIfHitOrMiss(guess, opponents_board):
@@ -64,16 +46,26 @@ def checkIfHitOrMiss(guess, opponents_board):
     if opponents_slot == " ":
         print "Miss!"
         opponents_board[guess] = "M"
-    if opponents_slot == "M" or opponents_slot == "H":
+        return "miss"
+    if opponents_slot == "M" or opponents_slot == "H"
         print "You've already guess this! Try again."
-    if opponents_slot == "S":
+        return "guess again"
+    if opponents_slot == "S"
         print "You've hit the ship!"
+        return "S"
         opponents_board[guess] = "H"
         for each_slot in opponents_board:
             if each_slot == "S":
                 print "its the opponents turn"
-                return
+                return "hit"
         print "you sunk my battleship!"
+        return "sunk"
+
+def drawBoardWithoutShip(board):
+    """
+    This will print a board but will replace any slot that has
+    "SNH" with " ".
+    """
 
 def chooseAttack(opponents_board):
     """
@@ -88,8 +80,10 @@ def chooseAttack(opponents_board):
     Once the player has successfully chosen the slot to attack,
     this function should 'return' the checkIfHitOrMiss result
     """
-
-
+#while
+answer = raw_input("choose a number between 0 through 8 to attack")
+result = checkIfHitOrMiss(guess, opponents_board)
+ 
 # the game begins here:
 playerOneBoard = [
     "0", "1", "2",
@@ -104,17 +98,14 @@ playerTwoBoard = [
 
 print "Player 1 select your first slot number for your ship:"
 choosePosition(1, playerOneBoard)
-print "Okay player 1! here's how your board looks!"
+print "Okay player one! here's how your board looks!"
+print "Player 1 select your first slot number for your ship:"
 drawBoard(playerOneBoard)
-
-print "Player 2 select your first slot number for your ship:"
 choosePosition(2, playerTwoBoard)
-print "Okay player 2! here's how your board looks!"
+print "Okay player two! here's how your board looks!"
 drawBoard(playerTwoBoard)
-
 game_not_won = True
 player_n_turn = 1
-
 # we need a while loop here that keeps going
 # as long as game_not_won == True.
 # inside this while loop, there should be a
