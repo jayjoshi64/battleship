@@ -83,7 +83,7 @@ def chooseAttack(opponents_board):
 #while
 answer = raw_input("choose a number between 0 through 8 to attack")
 result = checkIfHitOrMiss(guess, opponents_board)
- 
+
 # the game begins here:
 playerOneBoard = [
     "0", "1", "2",
@@ -106,6 +106,18 @@ print "Okay player two! here's how your board looks!"
 drawBoard(playerTwoBoard)
 game_not_won = True
 player_n_turn = 1
+
+while player_n_turn
+    result = chooseAttack
+    if "sunk":
+        print "player x won"
+    else:
+        if playerm 1's turn
+            which_player_turn = 2
+        else:
+            which_player_turn = 1
+
+
 # we need a while loop here that keeps going
 # as long as game_not_won == True.
 # inside this while loop, there should be a
