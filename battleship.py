@@ -2,7 +2,6 @@
 
 #import time time.sleep(secs)
 def drawBoard (board):
-
     print('   |   |')
     print(' ' + board[0] + ' | ' + board[1] + ' | ' + board[2])
     print('   |   |')
@@ -13,6 +12,25 @@ def drawBoard (board):
     print('-----------')
     print('   |   |')
     print(' ' + board[6] + ' | ' + board[7] + ' | ' + board[8])
+    print('   |   |')
+
+def scrubShip(slot):
+    if slot == "S":
+        return " "
+    else:
+        return slot
+
+def drawBoardWithoutShip(board):
+    print('   |   |')
+    print(' ' + scrubShip(board[0]) + ' | ' + scrubShip(board[1]) + ' | ' + scrubShip(board[2]))
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + scrubShip(board[3]) + ' | ' + scrubShip(board[4]) + ' | ' + scrubShip(board[5]))
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + scrubShip(board[6]) + ' | ' + scrubShip(board[7]) + ' | ' + scrubShip(board[8]))
     print('   |   |')
 
 def choosePosition(player_n, board):
@@ -60,12 +78,6 @@ def checkIfHitOrMiss(guess, opponents_board):
                 return "hit"
         print "you sunk my battleship!"
         return "sunk"
-
-def drawBoardWithoutShip(board):
-    """
-    This will print a board but will replace any slot that has
-    "SNH" with " ".
-    """
 
 def chooseAttack(opponents_board):
     """
