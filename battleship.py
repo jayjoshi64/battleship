@@ -40,10 +40,16 @@ def choosePosition(player_n, board):
     """
     drawBoard(board)
     slot_1 = int(raw_input("Slot 1 Position Number: > "))
+    while slot_1 < 0 or slot_1 >8:
+            int(raw_input("enter valid Position between 0 and 8 : "))
+        
     board[slot_1] = "X"
     print "Player %r: select your second slot number for your ship:" % player_n
     drawBoard(board)
     slot_2 = int(raw_input("Slot 2 Position Number: > "))
+    while slot_1 < 0 or slot_1 >8:
+            int(raw_input("enter valid Position between 0 and 8 : "))
+    
     while (slot_1 + 3 != slot_2 and slot_1 - 3 != slot_2 and slot_1 + 1 != slot_2 and slot_1 - 1 != slot_2):
         print "Invalid choice! Try again!"
         slot_2 = int(raw_input("Slot 2 Position Number: > "))
@@ -55,30 +61,35 @@ def choosePosition(player_n, board):
             board[index] = "S"
 
 
+def checkIfSunk(opponents_board):
+    for each_slot in opponents_board:
+        if each_slot == "S":
+            print "its the opponents turn"
+            return False
+    print "you sunk my battleship!"
+    return True
+
+
 def checkIfHitOrMiss(guess, opponents_board):
     """
     This function will check whether a guess
     is a hit or a miss and print out the result
     """
+    print "\n\n\n"
     opponents_slot = opponents_board[guess]
     if opponents_slot == " ":
         print "Miss!"
         opponents_board[guess] = "M"
         return "miss"
-    if opponents_slot == "M" or opponents_slot == "H"
+    if opponents_slot == "M" or opponents_slot == "H":
         print "You've already guess this! Try again."
+        print "\n"
         return "guess again"
-    if opponents_slot == "S"
+    if opponents_slot == "S":
         print "You've hit the ship!"
-        return "S"
         opponents_board[guess] = "H"
-        for each_slot in opponents_board:
-            if each_slot == "S":
-                print "its the opponents turn"
-                return "hit"
-        print "you sunk my battleship!"
-        return "sunk"
-
+        return "hit"
+            
 def chooseAttack(opponents_board):
     """
     This function will ask the user to
@@ -92,10 +103,22 @@ def chooseAttack(opponents_board):
     Once the player has successfully chosen the slot to attack,
     this function should 'return' the checkIfHitOrMiss result
     """
-#while
-answer = raw_input("choose a number between 0 through 8 to attack")
-result = checkIfHitOrMiss(guess, opponents_board)
+    while True:
+        guess = int(raw_input("choose a number between 0 through 8 to attack::"))
+        if guess < 0 or guess >8:
+            continue
+        result = checkIfHitOrMiss(guess, opponents_board)
 
+
+        if result == "hit" or result == "miss":
+            break
+
+    if checkIfSunk(opponents_board):
+        return "sunk"
+
+    return result
+
+    
 # the game begins here:
 playerOneBoard = [
     "0", "1", "2",
@@ -111,29 +134,48 @@ playerTwoBoard = [
 print "Player 1 select your first slot number for your ship:"
 choosePosition(1, playerOneBoard)
 print "Okay player one! here's how your board looks!"
-print "Player 1 select your first slot number for your ship:"
 drawBoard(playerOneBoard)
+print "==================="
+
+print "Player 2 select your first slot number for your ship:"
 choosePosition(2, playerTwoBoard)
 print "Okay player two! here's how your board looks!"
 drawBoard(playerTwoBoard)
+print "==================="
 game_not_won = True
 player_n_turn = 1
 
-while player_n_turn
+while player_n_turn:
 
-    if player 1's turn
+    #if player 1's turn
+    if player_n_turn == 1:
+        print "\n\n\n\n\n\n\n"
+        print "player 2's Board:"
         print drawBoardWithoutShip(playerTwoBoard)
+        print "player 1's Turn:"
         result = chooseAttack(playerTwoBoard)
-    if player 2's turn
-        print drawBoardWithoutShip(playerOneBoard)
+    #if player 2's turn
+    elif player_n_turn == 2:
+        print "\n\n\n\n\n\n\n"
+        print "player 2's Board:"
+        print drawBoardWithoutShip(playerTwoBoard)
+        print "player 1's Turn:"
         result = chooseAttack(playerOneBoard)
-    if hit = "sunk"
-        print "player x won"
-    else:
-        if playerm 1's turn
-            player_n_turn = 2
+    if result == "sunk":
+        if player_n_turn == 1:
+            print " player 2 Won"
         else:
-            player_n_turn = 1
+            print " player 1 Won"
+
+        player_n_turn = 0
+    else:
+        if player_n_turn == 1:
+            player_n_turn=2
+            drawBoardWithoutShip(playerTwoBoard)
+        else:
+            player_n_turn=1
+            drawBoardWithoutShip(playerOneBoard)
+
 
 
 # we need a while loop here that keeps going
