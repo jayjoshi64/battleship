@@ -120,10 +120,12 @@ game_not_won = True
 player_n_turn = 1
 
 while player_n_turn
-    print drawBoardWithoutShip
+
     if player 1's turn
+        print drawBoardWithoutShip(playerTwoBoard)
         result = chooseAttack(playerTwoBoard)
     if player 2's turn
+        print drawBoardWithoutShip(playerOneBoard)
         result = chooseAttack(playerOneBoard)
     if hit = "sunk"
         print "player x won"
